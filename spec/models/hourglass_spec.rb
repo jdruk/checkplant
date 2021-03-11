@@ -8,7 +8,7 @@ describe Hourglass do
     end
 
     it 'giving a hourglass with the duration time should be valid' do 
-      subject.duration_time= Time.now
+      subject.duration_time= 10
       expect(subject).to be_valid
     end
   end 

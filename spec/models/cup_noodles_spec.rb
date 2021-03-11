@@ -10,7 +10,7 @@ describe CupNoodles do
     end
 
     it 'giving a noodle with the preparation time should be valid' do 
-      subject.preparation_time = Time.now
+      subject.preparation_time = 10
       expect(subject).to be_valid
     end
   end 

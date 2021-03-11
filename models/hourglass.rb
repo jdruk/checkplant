@@ -5,5 +5,9 @@ class Hourglass
   
   attr_accessor :duration_time
 
-  validates :duration_time, presence: true
+  validates :duration_time, presence: true, numericality: { only_integer: true }
+
+  def initialize(duration_time: nil)
+    @duration_time = duration_time
+  end
 end
