@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module Helpers
-  module Result 
+  module Result
     def self.format_result(result)
-      if result.success? 
+      if result.success?
         "operation returned successful
         value: #{result.value}"
       else
         "operation returned fail
         value: #{result.errors}"
       end
-    end 
+    end
   end
 end

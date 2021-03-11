@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'rspec'
-gem 'robocop'
-gem 'factory_bot'
 gem 'activemodel'
+gem 'factory_bot'
+gem 'rspec'
+gem 'rubocop', require: false

@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require_relative '../lib/operations/base'
 
 module Operations
   class PreparingCupNoodles < ::Operations::Base
-    def call 
+    def call
       validates!
       cup_noodle_with_time_of_hourglasses
-      success(time_minimum: time_minimum )
+      success(time_minimum: time_minimum)
     rescue ArgumentError => e
       failure(e.message)
     end
 
-    private 
+    private
 
     def validates!
-      return if @params[:cup_noodles].valid? and @params[:hourglass_one].valid? and @params[:hourglass_two].valid?
+      return if @params[:cup_noodles].valid? && @params[:hourglass_one].valid? && @params[:hourglass_two].valid?
 
       raise ArgumentError, 'the time of all objects must be greater than or equal to zero and not null'
     end
@@ -28,10 +30,8 @@ module Operations
     def hourglass_ordener
       hourglass_major = @params[:hourglass_one].duration_time
       hourglass_minor = @params[:hourglass_two].duration_time
-      if hourglass_minor > hourglass_major
-        hourglass_major, hourglass_minor = hourglass_minor, hourglass_major 
-      end
-      return hourglass_major, hourglass_minor
+      hourglass_major, hourglass_minor = hourglass_minor, hourglass_major if hourglass_minor > hourglass_major
+      [hourglass_major, hourglass_minor]
     end
 
     def cup_noodle_with_time_of_hourglasses
@@ -42,7 +42,7 @@ module Operations
       raise ArgumentError, 'it is not possible to prepare the noodles with the current hourglasses'
     end
 
-    def minimum_preparation_time major: 0, minor: 0
+    def minimum_preparation_time(major: 0, minor: 0)
       minor * (major - minor)
     end
   end

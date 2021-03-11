@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Operations
   class Result
-    attr_reader :value
-    attr_reader :errors
+    attr_reader :value, :errors
 
     def initialize(success, value: nil, errors: nil)
       @success = success
@@ -17,4 +18,4 @@ module Operations
       !@success
     end
   end
-end 
+end
