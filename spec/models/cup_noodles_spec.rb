@@ -9,7 +9,7 @@ describe CupNoodles do
       expect(subject).not_to be_valid
     end
 
-    it 'giving a noodle without the preparation time should be valid' do 
+    it 'giving a noodle with the preparation time should be valid' do 
       subject.preparation_time = Time.now
       expect(subject).to be_valid
     end
